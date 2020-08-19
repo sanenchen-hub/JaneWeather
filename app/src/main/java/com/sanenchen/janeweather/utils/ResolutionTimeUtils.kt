@@ -2,6 +2,7 @@ package com.sanenchen.janeweather.utils
 
 /**
  * 解析时间
+ * @author: sanenchen
  */
 class ResolutionTimeUtils(time: String) {
     private val array: CharArray = time.toCharArray()
