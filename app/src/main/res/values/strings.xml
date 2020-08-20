@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">简天气</string>
+    <string name="show15DaysWeather">展开未来14日天气</string>
+    <string name="close15DaysWeather">收起未来14日天气</string>
 </resources>

@@ -26,4 +26,15 @@ class ResolutionTimeUtils(time: String) {
     fun getMinute(): String {
         return array[11].toString() + array[12].toString()
     }
+
+    /**
+     * 预报天气
+     */
+    fun getFSMouth(): String {
+        return array[5].toString() + array[6].toString()
+    }
+
+    fun getFSDay(): String {
+        return array[8].toString() + array[9].toString()
+    }
 }

@@ -1,37 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity">
 
-    <androidx.core.widget.NestedScrollView
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/refreshMainLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true">
+        android:layout_height="match_parent">
 
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
 
-            <FrameLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:paddingTop="128dp">
+                android:orientation="vertical">
 
-                <fragment
-                    android:id="@+id/fragment"
-                    android:name="com.sanenchen.janeweather.fragment.NowWeatherFragment"
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingTop="128dp"
+                    android:paddingBottom="64dp">
+
+                    <fragment
+                        android:id="@+id/fragment"
+                        android:name="com.sanenchen.janeweather.fragment.NowWeatherFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        tools:layout="@layout/fragment_now_weather" />
+                </FrameLayout>
+
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    tools:layout="@layout/fragment_now_weather" />
-            </FrameLayout>
+                    android:layout_margin="16dp"
+                    android:layout_marginTop="2dp">
 
-        </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingBottom="8dp">
 
-</LinearLayout>
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="16dp"
+                            android:paddingRight="16dp"
+                            android:text="天气预报"
+                            android:textColor="@color/secondary_text" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="16dp">
+
+                            <fragment
+                                android:id="@+id/fragment2"
+                                android:name="com.sanenchen.janeweather.fragment.ThreeDayForecastFragment"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                tools:layout="@layout/fragment_three_day_forecast" />
+                        </FrameLayout>
+
+                        <Button
+                            android:id="@+id/buttonShow14DaysWeather"
+                            style="@style/Widget.AppCompat.Button.Small"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:background="#00FFFFFF"
+                            android:text="@string/show15DaysWeather"
+                            android:textColor="@color/colorAccent" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</FrameLayout>
