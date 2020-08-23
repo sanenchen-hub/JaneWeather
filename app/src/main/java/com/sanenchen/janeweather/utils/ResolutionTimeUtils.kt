@@ -1,12 +1,15 @@
 package com.sanenchen.janeweather.utils
 
 /**
- * 解析时间
+ * 解析时间数据
  * @author: sanenchen
  */
 class ResolutionTimeUtils(time: String) {
     private val array: CharArray = time.toCharArray()
 
+    /**
+     * 实时天气
+     */
     fun getYear(): String {
         return array[0].toString() + array[1].toString() + array[2].toString() + array[3].toString()
     }
@@ -28,7 +31,7 @@ class ResolutionTimeUtils(time: String) {
     }
 
     /**
-     * 预报天气
+     * 15日预报天气
      */
     fun getFSMouth(): String {
         return array[5].toString() + array[6].toString()
@@ -36,5 +39,12 @@ class ResolutionTimeUtils(time: String) {
 
     fun getFSDay(): String {
         return array[8].toString() + array[9].toString()
+    }
+
+    /**
+     * 小时级天气
+     */
+    fun getHourlyTime(): String {
+        return array[11].toString() + array[12].toString() + array[13].toString() + array[14].toString() + array[15].toString()
     }
 }

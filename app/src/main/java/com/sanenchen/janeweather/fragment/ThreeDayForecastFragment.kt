@@ -1,6 +1,5 @@
 package com.sanenchen.janeweather.fragment
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -18,7 +17,7 @@ import kotlinx.android.synthetic.main.fragment_three_day_forecast.view.*
 import kotlinx.android.synthetic.main.item_three_day_forecast.view.*
 
 /**
- * 3天预报-Fragment
+ * 共计15日预报-Fragment
  * @author: sanenchen
  **/
 class ThreeDayForecastFragment : Fragment() {
@@ -29,17 +28,15 @@ class ThreeDayForecastFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_three_day_forecast, container, false)
         viewThis = view
-        activityThis = activity!!
         threeDayForecastToRecycler(false) // 从缓存中读取数据
         return view
     }
 
     /**
-     * 将数据放入RecyclerView
+     * 解析数据放入RecyclerView
      */
     companion object {
         lateinit var viewThis: View
-        lateinit var activityThis: Activity
         var isShow = false
         fun threeDayForecastToRecycler(isShow: Boolean) {
             /*
@@ -68,26 +65,28 @@ class ThreeDayForecastFragment : Fragment() {
             将数据信息放入Data中
              */
             if (isShow) {
-                for (index in 1..14) {
+                for (index in 0..14) {
                     val weatherForecast = weather15DBean.daily[index]
                     list.add(
                         ThreeDayForecastData(
                             weatherForecast.tempMax,
                             weatherForecast.tempMin,
                             weatherForecast.textDay,
+                            weatherForecast.textNight,
                             weatherForecast.fxDate,
                             weatherForecast.iconDay
                         )
                     )
                 }
             } else {
-                for (index in 1..3) {
+                for (index in 0..2) {
                     val weatherForecast = weather15DBean.daily[index]
                     list.add(
                         ThreeDayForecastData(
                             weatherForecast.tempMax,
                             weatherForecast.tempMin,
                             weatherForecast.textDay,
+                            weatherForecast.textNight,
                             weatherForecast.fxDate,
                             weatherForecast.iconDay
                         )
@@ -151,20 +150,25 @@ class ThreeDayForecastFragment : Fragment() {
              */
             val weatherText = when (position) {
                 0 -> {
-                    "明天"
+                    "今天"
                 }
                 1 -> {
-                    "后天"
+                    "明天"
                 }
                 2 -> {
-                    "大后天"
+                    "后天"
                 }
                 else -> {
                     ResolutionTimeUtils(data[position].fxDate).getFSMouth() +
-                            "月" +
-                            ResolutionTimeUtils(data[position].fxDate).getFSDay() + "日"
+                            "月" + ResolutionTimeUtils(data[position].fxDate).getFSDay() + "日"
                 }
-            } + " • " + data[position].textDay
+            } + " • " + data[position].textDay + when (data[position].textDay != data[position].textNight) {
+                /*
+                判断是否有xx转xx的情况
+                 */
+                true -> { "转" + data[position].textNight }
+                false -> { "" }
+            }
             innerHolder.textViewWeatherData.text = weatherText
 
             /*
@@ -182,6 +186,7 @@ class ThreeDayForecastFragment : Fragment() {
         val maxTemp: String,
         val minTemp: String,
         val textDay: String,
+        val textNight: String,
         val fxDate: String,
         val icon: String
     )

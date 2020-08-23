@@ -74,21 +74,6 @@ class NowWeatherFragment : Fragment() {
                     rT.getYear() + "/" + rT.getMouth() + "/" + rT.getDay() + " " + rT.getHour() + ":" + rT.getMinute()
                 viewThis.textViewMainTime.text = updateData
             }
-            /*
-            尝试获取今日最高温度与最低温度
-             */
-            if (sharedPreferences.getString("weather15D", "") == "") { // 检测是否存在数据
-                return
-            }
-            val weather15DBean: WeatherDailyBean = Gson().fromJson(
-                sharedPreferences.getString("weather15D", ""),
-                WeatherDailyBean::class.java
-            )
-            val today = weather15DBean.daily[0]
-            val tempMax = today.tempMax + "°"
-            val tempMin = today.tempMin + "°"
-            val formatMaxMinTemp = "$tempMax / $tempMin"
-            viewThis.textViewMMaxMinTemp.text = formatMaxMinTemp
         }
     }
 }
