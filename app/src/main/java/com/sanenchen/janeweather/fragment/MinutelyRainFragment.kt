@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment
 import com.google.gson.Gson
 import com.sanenchen.janeweather.R
 import interfaces.heweather.com.interfacesmodule.bean.MinutelyBean
-import interfaces.heweather.com.interfacesmodule.bean.weather.WeatherHourlyBean
 import kotlinx.android.synthetic.main.fragment_minutely_rain.view.*
 
 /**

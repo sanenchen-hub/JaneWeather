@@ -12,7 +12,7 @@
 
 ## 使用说明
 ### 直接使用
-APK文件：[下载链接](https://github.com/sanenchen-hub/JaneWeather/releases/tag/0.1.0)
+APK文件：[下载链接](https://github.com/sanenchen-hub/JaneWeather/releases/tag/0.1.1)
 
 ### 自行编译
 1. 申请一个和风天气API
@@ -28,10 +28,12 @@ APK文件：[下载链接](https://github.com/sanenchen-hub/JaneWeather/releases
 ## 版本截图
 ![](https://blogoss.lyqmc.cn/typecho/uploads/2020/08/15982010505837.jpg)
 ![](https://blogoss.lyqmc.cn/typecho/uploads/2020/08/15982010792457.jpg)
-![](https://blogoss.lyqmc.cn/typecho/uploads/2020/08/15982010908922.jpg)
+![](https://blogoss.lyqmc.cn/typecho/uploads/2020/08/15982347746317.jpg)
 ![](https://blogoss.lyqmc.cn/typecho/uploads/2020/08/15982011022109.jpg)
 
 ## 版本更新记录
+### 2020年08月24日 V0.1.1
+- 优化的其他信息的UI
 ### 2020年08月24日 V0.1.0
 - 支持GPS精确定位，精准预报
 - 支持24小时预报

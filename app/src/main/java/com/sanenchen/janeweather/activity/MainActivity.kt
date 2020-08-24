@@ -3,7 +3,6 @@ package com.sanenchen.janeweather.activity
 import android.Manifest
 import android.app.AlertDialog
 import android.os.Bundle
-import android.text.Html
 import com.amap.api.location.AMapLocationClient
 import com.google.android.material.snackbar.Snackbar
 import com.permissionx.guolindev.PermissionX

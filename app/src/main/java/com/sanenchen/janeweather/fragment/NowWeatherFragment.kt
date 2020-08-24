@@ -11,7 +11,6 @@ import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.sanenchen.janeweather.R
 import com.sanenchen.janeweather.utils.ResolutionTimeUtils
-import interfaces.heweather.com.interfacesmodule.bean.weather.WeatherDailyBean
 import interfaces.heweather.com.interfacesmodule.bean.weather.WeatherNowBean
 import kotlinx.android.synthetic.main.fragment_now_weather.view.*
 
